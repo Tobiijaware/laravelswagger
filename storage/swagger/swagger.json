@@ -1,0 +1,268 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel",
+        "description": "Documentation for the Application API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "servers": [
+        {
+            "url": "http://task-app.test/api",
+            "description": "Laravel Server #1"
+        }
+    ],
+    "paths": {
+        "/user": {
+            "get": {
+                "summary": "",
+                "description": "",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "(Unauthorized) Invalid or missing Access Token"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "user"
+                ]
+            }
+        },
+        "/admin/login": {
+            "post": {
+                "summary": "Login",
+                "description": "",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "(Unauthorized) Invalid or missing Access Token"
+                    }
+                },
+                "tags": [
+                    "admin"
+                ]
+            }
+        },
+        "/admin/logout": {
+            "post": {
+                "summary": "Logout",
+                "description": "",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "(Unauthorized) Invalid or missing Access Token"
+                    }
+                },
+                "tags": [
+                    "admin"
+                ]
+            }
+        },
+        "/view-employees": {
+            "get": {
+                "summary": "Find all employees",
+                "description": "",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "(Unauthorized) Invalid or missing Access Token"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "view-employees"
+                ]
+            }
+        },
+        "/view-single-employee/{id}": {
+            "get": {
+                "summary": "Find an employee of id",
+                "description": "",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "(Unauthorized) Invalid or missing Access Token"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "view-single-employee"
+                ]
+            }
+        },
+        "/update-employees/{id}": {
+            "put": {
+                "summary": "Update employee data",
+                "description": "",
+                "deprecated": false,
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "401": {
+                        "description": "(Unauthorized) Invalid or missing Access Token"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "description": "",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "tags": [
+                    "update-employees"
+                ]
+            }
+        }
+    },
+    "tags": [],
+    "components": {
+        "schemas": {
+            "Role": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "name",
+                    "guard_name"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "bigint",
+                        "example": 8476679446170461483
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "guard_name": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "created_at": {
+                        "type": "datetime",
+                        "example": "2021-10-08 09:23:08"
+                    },
+                    "updated_at": {
+                        "type": "datetime",
+                        "example": "2021-10-08 09:23:08"
+                    }
+                }
+            },
+            "User": {
+                "type": "object",
+                "required": [
+                    "id",
+                    "firstname",
+                    "lastname",
+                    "email"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "bigint",
+                        "example": 2691787811733844188
+                    },
+                    "firstname": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "lastname": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "marital_status": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "phone_number": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "education_degree": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "dob": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "professional_qual": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "string"
+                    },
+                    "email_verified_at": {
+                        "type": "datetime",
+                        "example": "2021-10-08 09:23:08"
+                    },
+                    "created_at": {
+                        "type": "datetime",
+                        "example": "2021-10-08 09:23:08"
+                    },
+                    "updated_at": {
+                        "type": "datetime",
+                        "example": "2021-10-08 09:23:08"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
